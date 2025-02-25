@@ -1,0 +1,4 @@
+class Oganizador {
+    var nombre = ""
+
+}
