@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Eventos Sostenibles</title>
     <link rel="stylesheet" href="estilos/css.css">
 </head>
+
 <body>
     <header>
         <h1>Portal de Eventos Sostenibles</h1>
@@ -16,65 +18,59 @@
             </ul>
         </nav>
     </header>
-    
+
     <section class="hero">
         <h2>Bienvenido al Portal de Eventos Sostenibles</h2>
         <p>Explora y participa en eventos ecológicos, talleres y conferencias.</p>
     </section>
-    
+
     <section class="carrusel">
         <h2>Eventos Destacados</h2>
-        <div class="evento">
-            <img src="img/energia.jpg" alt="Evento 1">
-            <h3>Conferencia sobre Energía Renovable</h3>
-            <p>Fecha: 15 de Marzo, 2025</p>
+        <div class="carrusel-container">
+            <div class="evento">
+                <img src="img/energia.jpg" alt="Evento 1">
+                <h3>Conferencia sobre Energía Renovable</h3>
+                <p>Fecha: 15 de Marzo, 2025</p>
+            </div>
+            <div class="evento">
+                <img src="img/reciclaje.jpg" alt="Evento 2">
+                <h3>Taller de Reciclaje</h3>
+                <p>Fecha: 22 de Marzo, 2025</p>
+            </div>
+            <div class="evento">
+                <img src="img/reforestacion.jpg" alt="Evento 3">
+                <h3>Jornada de Reforestación</h3>
+                <p>Fecha: 30 de Marzo, 2025</p>
+            </div>
         </div>
-        <div class="evento">
-            <img src="evento2.jpg" alt="Evento 2">
-            <h3>Taller de Reciclaje en Casa</h3>
-            <p>Fecha: 22 de Marzo, 2025</p>
-        </div>
-    </section>
-    
-    <section class="eventos-listado">
-        <h2>Lista de Eventos</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Fecha</th>
-                    <th>Descripción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="detalle_evento.html?evento=1">Conferencia sobre Energía Renovable</a></td>
-                    <td>15 de Marzo, 2025</td>
-                    <td>Un evento para discutir el futuro de las energías renovables.</td>
-                </tr>
-                <tr>
-                    <td><a href="detalle_evento.html?evento=2">Taller de Reciclaje en Casa</a></td>
-                    <td>22 de Marzo, 2025</td>
-                    <td>Aprende cómo mejorar tu reciclaje doméstico de manera efectiva.</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    
-    <section class="detalle-evento">
-        <h2>Detalle del Evento</h2>
-        <div class="evento-detalle">
-            <img src="evento1.jpg" alt="Evento Detallado">
-            <h3>Conferencia sobre Energía Renovable</h3>
-            <p>Fecha: 15 de Marzo, 2025</p>
-            <p>Ubicación: Centro de Convenciones, Madrid</p>
-            <p>Organizador: Green Future</p>
-            <p>Descripción: Un evento dedicado a las energías renovables y su impacto en el medio ambiente.</p>
+        <div class="carrusel-botones">
+            <button id="prev">&lt;</button>
+            <button id="next">&gt;</button>
         </div>
     </section>
-    
+
     <footer>
         <p>&copy; 2025 Portal de Eventos Sostenibles</p>
     </footer>
+    <script>
+        const carruselContainer = document.querySelector('.carrusel-container');
+        const eventos = document.querySelectorAll('.evento');
+        let index = 0;
+
+        document.getElementById('next').addEventListener('click', () => {
+            index = (index + 1) % eventos.length;
+            actualizarCarrusel();
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            index = (index - 1 + eventos.length) % eventos.length;
+            actualizarCarrusel();
+        });
+
+        function actualizarCarrusel() {
+            carruselContainer.style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
 </body>
+
 </html>
